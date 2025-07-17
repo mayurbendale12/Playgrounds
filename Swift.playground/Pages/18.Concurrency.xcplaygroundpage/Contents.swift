@@ -86,7 +86,6 @@ await withTaskGroup(of: UIImage.self) { group in
         }
     }
 
-
     for await photo in group {
         show(photo)
     }
@@ -113,8 +112,7 @@ let photos1 = await withTaskGroup(of: Optional<UIImage>.self) { group in
     let photoNames = await listPhotos(inGallery: "Summer Vacation")
     for name in photoNames {
         let added = group.addTaskUnlessCancelled {
-            guard !Task.isCancelled else { return nil }
-            return await downloadPhoto(named: name)
+            Task.isCancelled ? nil : await downloadPhoto(named: name)
         }
         guard added else { break }
     }
@@ -143,6 +141,33 @@ let unstructuredTask = Task {
 
 unstructuredTask.cancel()
 
+/*: ## Main Actor */
+//To ensure that function runs on main actor
+@MainActor
+func show(_: Data) {
+    // ... UI code to display the photo ...
+}
+
+func downloadAndShowPhoto(named name: String) async {
+    let photo = await downloadPhoto(named: name)
+    show(photo)
+}
+
+let downloadedPhoto = await downloadPhoto(named: "Trees at Sunrise")
+//To ensure that closure runs on main actor
+Task { @MainActor in
+    show(downloadedPhoto)
+}
+
+//You can also write @MainActor on a structure, class, or enumeration, properties or methods
+@MainActor
+struct PhotoGallery {
+    @MainActor var photoNames: [String]
+    var hasCachedPhotos = false
+
+    @MainActor func drawUI() { /* ... UI code ... */ }
+    func cachePhotos() { /* ... networking code ... */ }
+}
 /*: ## Actors */
 actor TemperatureLogger {
     let label: String
@@ -182,6 +207,14 @@ extension TemperatureLogger {
 let temperatureLogger = TemperatureLogger(label: "Tea kettle", measurement: 85)
 let reading = TemperatureReading(measurement: 45)
 await temperatureLogger.addReading(from: reading)
+
+//To explicitly mark a type as not being sendable, write ~Sendable after the type
+//This code gives error: Conformance to 'Sendable' cannot be suppressed
+//Another approach is to use @unchecked Sendable
+/*
+struct FileDescriptor: ~Sendable {
+    let rawValue: Int
+}*/
 
 PlaygroundPage.current.finishExecution()
 //: [Next](@next)

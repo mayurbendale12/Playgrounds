@@ -1,6 +1,8 @@
 //: [Previous](@previous)
 let maximumNumberOfLoginAttempts = 10
 var currentLoginAttempt = 0
+let variableWithUnderScore = 10_000
+let validVariable = 1__100_000_000
 
 var environment = "development"
 let maximumNumberOfLoginAttemptsConstant: Int
@@ -44,6 +46,17 @@ let paddedDouble = 000123.456
 let oneMillion = 1_000_000
 let justOverOneMillion = 1_000_000.000_000_1
 
+let someName = "Some name"
+let otherName = "Other name"
+
+if someName < otherName {
+    print("It's \(someName) vs \(otherName)")
+} else {
+    print("It's \(otherName) vs \(someName)")
+}
+
+let scores = ["A": 4, "B": 5, "C": 6]
+print(scores["A", default: 0])
 /*: ## Type Aliases */
 
 typealias AudioSample = UInt16

@@ -64,6 +64,12 @@ let smallTriangle = Triangle(size: 3)
 let opaqueJoinedTriangles = join(smallTriangle, flip(smallTriangle))
 print(opaqueJoinedTriangles.draw())
 
+/*: ## Opaque Parmater Types*/
+//you can also write some in the type for a parameter to a function, subscript, or initializer
+func drawTwiceSome(_ shape: some Shape) -> String {
+    let drawn = shape.draw()
+    return drawn + "\n" + drawn
+}
 /*: ## Boxed Protocol Types */
 struct VerticalShapes: Shape {
     var shapes: [any Shape] // Each element in the array can be a different type, and each of those types must conform to the Shape protocol
@@ -80,8 +86,4 @@ print(vertical.draw())
 if let downcastTriangle = vertical.shapes[0] as? Triangle {
     print(downcastTriangle.size)
 }
-
-
-
-
 //: [Next](@next)

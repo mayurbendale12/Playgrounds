@@ -92,6 +92,26 @@ let advice = if temperatureInCelsius > 100 {
     "It's a reasonable temperature."
 }
 
+let point1 = (12, 100)
+if case (let x, 100) = point1 {
+    print("Found a point on the y=100 line, at \(x)")
+}
+
+let points = [(10, 0), (30, -30), (-20, 0)]
+
+for (x, y) in points {
+    if y == 0 {
+        print("Found a point on the x-axis at \(x)")
+    }
+}
+
+for case (let x, 0) in points {
+    print("Found a point on the x-axis at \(x)")
+}
+
+for case let (x, y) in points where x == y || x == -y  {
+    print("Found (\(x), \(y)) along a line through the origin")
+}
 /*: ## Switch*/
 let someCharacter: Character = "z"
 switch someCharacter {

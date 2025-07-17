@@ -217,5 +217,20 @@ extension Container {
     }
 }
 
+/*: ## Implicit Constraints */
+//Some protocol conformation like Copyable are im;licit, you don't have to write expicitly
+func someFunction<MyType>(_ argument: MyType) {  }
+func someFunction1<MyType: Copyable>(_ argument: MyType) { }
 
+func f<MyType>(x: inout MyType) {
+    let x1 = x  // The value of x1 is a copy of x's value.
+    let x2 = x  // The value of x2 is a copy of x's value.
+}
+
+
+/*
+func g<AnotherType: ~Copyable>(y: inout AnotherType) {
+    let y1 = y  // The assignment consumes y's value.
+    let y2 = y  // Error: Value consumed more than once.
+}*/
 //: [Next](@next)

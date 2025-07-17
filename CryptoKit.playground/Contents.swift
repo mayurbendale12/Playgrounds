@@ -1,5 +1,6 @@
 import Foundation
 import CryptoKit
+import Security
 
 // SHA-256
 let string = "Hello Swift!"

@@ -225,6 +225,21 @@ for level in levels.sorted() {
     print(level)
 }
 
+/*: ## Implicit Conformance to a Protocol */
+//Swift automatically infers conformation, you don't have to explicitly write
+//Copyable, Sendable, BitwiseCopyable
+//To suppress an implicit conformance, write a tilde (~) before the protocol
+//This code gives error: Conformance to 'Sendable' cannot be suppressed
+//Another approach is to use @unchecked Sendable
+/*
+struct FileDescriptor: ~Sendable {
+    let rawValue: Int
+}*/
+
+//Another way to suppress implicit conformance is with an extension that you mark as unavailable:
+struct FileDescriptor {}
+@available(*, unavailable)
+extension FileDescriptor: Sendable { }
 /*: ## Collections of Protocol Types */
 let things: [TextRepresentable] = [game, d12, simonTheHamster]
 for thing in things {
