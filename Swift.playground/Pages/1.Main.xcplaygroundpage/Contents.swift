@@ -1,6 +1,6 @@
 /*:
 
-# The Swift Programming Langauge (6)
+# The Swift Programming Langauge (6.2)
 
  * [Basics](2.Basics)
  * [Basic Operators](3.BasicOperators)
