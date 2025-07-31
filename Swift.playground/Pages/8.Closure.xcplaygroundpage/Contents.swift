@@ -70,23 +70,27 @@ func sample(customer customerProvider: () -> String) {
 sample {
     return ""
 }
+
 //With autoclosure
 func serve(customer customerProvider: @autoclosure () -> String) {
 }
+
 serve(customer: "Sample")
 
 //with autoclosure and escaping combine
 var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 var customerProviders: [() -> String] = []
+
 @MainActor func collectCustomerProviders(_ customerProvider: @autoclosure @escaping () -> String) {
     customerProviders.append(customerProvider)
 }
-collectCustomerProviders(customersInLine.remove(at: 0))
-collectCustomerProviders(customersInLine.remove(at: 0))
 
+collectCustomerProviders(customersInLine.remove(at: 0))
+collectCustomerProviders(customersInLine.remove(at: 0))
 
 print("Collected \(customerProviders.count) closures.")
 // Prints "Collected 2 closures."
+
 for customerProvider in customerProviders {
     print("Now serving \(customerProvider())!")
 }

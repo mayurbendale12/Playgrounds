@@ -46,6 +46,7 @@ let favoriteSnacks = [
     "Bob": "Licorice",
     "Eve": "Pretzels",
 ]
+
 func buyFavoriteSnack(person: String, vendingMachine: VendingMachine) throws {
     let snackName = favoriteSnacks[person] ?? "Candy Bar"
     try vendingMachine.vend(itemNamed: snackName)
@@ -53,6 +54,7 @@ func buyFavoriteSnack(person: String, vendingMachine: VendingMachine) throws {
 
 var vendingMachine = VendingMachine()
 vendingMachine.coinsDeposited = 8
+
 do {
     try buyFavoriteSnack(person: "Alice", vendingMachine: vendingMachine)
     print("Success! Yum.")
@@ -89,8 +91,8 @@ func someThrowingFunction() throws -> Int {
 }
 
 let x = try? someThrowingFunction()
-
 let y: Int?
+
 do {
     y = try someThrowingFunction()
 } catch {
@@ -131,6 +133,7 @@ func nonThrowingFunction() throws(Never) {
 
 //you can also write a specific error type for a do-catch statement
 let ratings = [Int]()
+
 do throws(StatisticsError) {
     try summarize(ratings)
 } catch {
@@ -153,6 +156,4 @@ do {
         print("Invalid rating: \(rating)")
     }
 }
-
-
 //: [Next](@next)

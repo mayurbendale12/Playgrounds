@@ -52,14 +52,12 @@ func availableRainyWeekendPhotos() -> Result<[String], Error> {
         try listDownloadedPhotos(inGallery: "A Rainy Weekend")
     }
 }
-
 /*: ## Asynchronous Sequences */
 
 let handle = FileHandle.standardInput
 for try await line in handle.bytes.lines {
     print(line)
 }
-
 /*: ## Calling Asynchronous Functions in Parallel */
 //Calling an asynchronous function with await runs only one piece of code at a time. While the asynchronous code is running, the caller waits for that code to finish before moving on to run the next line of code
 let photo1 = await downloadPhoto(named: photoNames[0])
@@ -76,7 +74,6 @@ async let thirdPhoto = downloadPhoto(named: photoNames[2])
 
 let allPhotos = await [firstPhoto, secondPhoto, thirdPhoto]
 show(allPhotos)
-
 /*: ## Tasks and Task Groups */
 await withTaskGroup(of: UIImage.self) { group in
     let photoNames = await listPhotos(inGallery: "Summer Vacation")
@@ -133,14 +130,12 @@ let task = await withTaskCancellationHandler {
 } onCancel: {
   // This onCancel closure might execute concurrently with the operation.
 }
-
 /*: ## Unstructured Concurrency */
 let unstructuredTask = Task {
     let photoNames = await listPhotos(inGallery: "Summer Vacation")
 }
 
 unstructuredTask.cancel()
-
 /*: ## Main Actor */
 //To ensure that function runs on main actor
 @MainActor
@@ -191,7 +186,6 @@ actor TemperatureLogger {
 
 let logger = TemperatureLogger(label: "Outdoors", measurement: 25)
 print(await logger.max)
-
 /*: ## Sendable Types */
 //This strucure has only sendable properties so its implicitly sendable
 struct TemperatureReading: Sendable {

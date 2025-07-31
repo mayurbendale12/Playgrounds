@@ -24,9 +24,7 @@ let 🐶🐮 = "dogcow"
 print("Value of π: \(π)")
 
 let sampleValuesToPrint = [maximumNumberOfLoginAttempts, currentLoginAttempt]
-for value in 0..<sampleValuesToPrint.count {
-    print(value, separator: " # ", terminator: " ")
-}
+print(maximumNumberOfLoginAttempts, currentLoginAttempt, separator: " # ", terminator: " ")
 
 // This is a comment.
 
@@ -61,7 +59,6 @@ print(scores["A", default: 0])
 
 typealias AudioSample = UInt16
 var maxAmplitudeFound = AudioSample.min
-
 /*: ## Tuples */
 let http404Error = (404, "Not Found")
 // http404Error is of type (Int, String), and equals (404, "Not Found")
@@ -86,7 +83,6 @@ print("The status code is \(http200Status.statusCode)")
 // Prints "The status code is 200"
 print("The status message is \(http200Status.description)")
 // Prints "The status message is OK"
-
 /*: ## Optionals */
 let possibleNumber = "123"
 let convertedNumber = Int(possibleNumber)
@@ -103,7 +99,6 @@ if convertedNumber != nil {
     print("convertedNumber contains some integer value.")
 }
 // Prints "convertedNumber contains some integer value."
-
 
 if let actualNumber = Int(possibleNumber) {
     print("The string \"\(possibleNumber)\" has an integer value of \(actualNumber)")
@@ -150,7 +145,6 @@ if let definiteString = assumedString {
     print(definiteString)
 }
 // Prints "An implicitly unwrapped optional string."
-
 /*: ## Error Handling */
 enum SandwichError: Error {
     case outOfCleanDishes
@@ -168,7 +162,6 @@ do {
 } catch SandwichError.missingIngredients(let ingredients) {
     //buyGroceries
 }
-
 /*: ## Assertions and Preconditions */
 let age = 12
 assert(age >= 0, "A person's age can't be less than zero.")

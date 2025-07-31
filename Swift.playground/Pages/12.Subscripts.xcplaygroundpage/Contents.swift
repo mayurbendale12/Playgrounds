@@ -5,6 +5,7 @@ struct TimesTable {
         return multiplier * index
     }
 }
+
 let threeTimesTable = TimesTable(multiplier: 3)
 print("six times three is \(threeTimesTable[6])")
 
@@ -47,6 +48,7 @@ enum Planet: Int {
         return Planet(rawValue: n)!
     }
 }
+
 let mars = Planet[4]
 print(mars)
 //: [Next](@next)

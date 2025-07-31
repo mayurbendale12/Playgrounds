@@ -59,9 +59,7 @@ signedOverflow = signedOverflow &- 1
 //Higher-precedence operators are evaluated before lower-precedence ones. The remainder operator (%) and the multiplication operator (*) have a higher precedence than the addition operator (+). As a result, they’re both evaluated before the addition is considered.
 
 2 + ((3 % 4) * 5)
-
 /*: ## Operator Methods */
-
 struct Vector2D {
     var x = 0.0, y = 0.0
 }
@@ -114,7 +112,6 @@ if twoThree == anotherTwoThree {
     print("These two vectors are equivalent.")
 }
 // Prints "These two vectors are equivalent."
-
 /*: ## Custom Operators */
 //New operators are declared at a global level using the operator keyword, and are marked with the prefix, infix or postfix modifiers
 prefix operator +++
@@ -142,5 +139,4 @@ let firstVector = Vector2D(x: 1.0, y: 2.0)
 let secondVector = Vector2D(x: 3.0, y: 4.0)
 let plusMinusVector = firstVector +- secondVector
 // plusMinusVector is a Vector2D instance with values of (4.0, -2.0)
-
 //: [Next](@next)

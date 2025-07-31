@@ -32,6 +32,7 @@ enum CompassPoint {
         self = .north
     }
 }
+
 var currentDirection = CompassPoint.west
 let rememberedDirection = currentDirection
 currentDirection.turnNorth()
@@ -54,7 +55,4 @@ print("The frameRate property of tenEighty is now \(tenEighty.frameRate)")
 if tenEighty === alsoTenEighty {
     print("tenEighty and alsoTenEighty refer to the same VideoMode instance.")
 }
-
-
-
 //: [Next](@next)

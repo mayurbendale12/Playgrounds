@@ -53,7 +53,6 @@ for item in shoppingList {
 for (index, value) in shoppingList.enumerated() {
     print("Item \(index + 1): \(value)")
 }
-
 /*: ## Sets */
 var letters = Set<Character>()
 print("letters is of type Set<Character> with \(letters.count) items.")
@@ -113,7 +112,6 @@ farmAnimals.isSuperset(of: houseAnimals)
 // true
 farmAnimals.isDisjoint(with: cityAnimals)
 // true
-
 /*: ## Dictionary */
 var namesOfIntegers: [Int: String] = [:]
 namesOfIntegers[16] = "sixteen"

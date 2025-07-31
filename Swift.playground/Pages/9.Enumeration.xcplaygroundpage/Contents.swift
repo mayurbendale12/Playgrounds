@@ -7,14 +7,14 @@ enum CompassPoint {
 }
 
 //Can define multiple cases on single line
-enum Planet {
+enum Planet: Int {
     case mercury, venus, earth, mars, jupiter, saturn, uranus, neptune
 }
 
 var directionToHead = CompassPoint.west
 directionToHead = .east
-
 directionToHead = .south
+
 switch directionToHead {
 case .north:
     print("Lots of planets have a north")
@@ -27,6 +27,7 @@ case .west:
 }
 
 let somePlanet = Planet.earth
+
 switch somePlanet {
 case .earth:
     print("Mostly harmless")
@@ -38,6 +39,7 @@ default:
 enum Beverage: CaseIterable {
     case coffee, tea, juice
 }
+
 let numberOfChoices = Beverage.allCases.count
 print("\(numberOfChoices) beverages available")
 
@@ -50,6 +52,7 @@ enum Barcode {
     case upc(Int, Int, Int, Int)
     case qrCode(String)
 }
+
 var productBarcode = Barcode.upc(8, 85909, 51226, 3)
 productBarcode = .qrCode("ABCDEFGHIJKLMNOP")
 
@@ -105,7 +108,6 @@ func evaluate(_ expression: ArithmeticExpression) -> Int {
         return evaluate(left) * evaluate(right)
     }
 }
-
 
 print(evaluate(product))
 //: [Next](@next)

@@ -1,7 +1,5 @@
 //: [Previous](@previous)
-
 import Foundation
-
 /*: ## Property Requirement */
 protocol FullyNamed {
     var fullName: String { get }
@@ -23,7 +21,6 @@ class Starship: FullyNamed {
         return (prefix != nil ? prefix! + " " : "") + name
     }
 }
-
 /*: ## Method Requirement */
 protocol Named {
     static func getName() -> String
@@ -65,7 +62,6 @@ enum OnOffSwitch: Togglable {
 }
 var lightSwitch = OnOffSwitch.off
 lightSwitch.toggle()
-
 /*: ## Initializer Requirements */
 protocol SomeProtocol {
     init(someParameter: Int)
@@ -94,7 +90,6 @@ class SomeSubClass: SomeSuperClass, MyProtocol {
         // initializer implementation goes here
     }
 }
-
 /*: ## Delegation */
 class DiceGame {
     let sides: Int
@@ -166,7 +161,6 @@ let tracker = DiceGameTracker()
 let game = DiceGame(sides: 6)
 game.delegate = tracker
 game.play(rounds: 3)
-
 /*: ## Adding Protocol Conformance with an Extension */
 protocol TextRepresentable {
     var textualDescription: String { get }
@@ -191,7 +185,6 @@ extension Hamster: TextRepresentable {}
 
 let simonTheHamster = Hamster(name: "Simon")
 print(simonTheHamster.textualDescription)
-
 /*: ## Conditionally Conforming to a Protocol */
 //The following extension makes Array instances conform to the TextRepresentable protocol whenever they store elements of a type that conforms to TextRepresentable.
 extension Array: TextRepresentable where Element: TextRepresentable {
@@ -202,7 +195,6 @@ extension Array: TextRepresentable where Element: TextRepresentable {
 }
 let myDice = [d12]
 print(myDice.textualDescription)
-
 /*: ## Adopting a Protocol Using a Synthesized Implementation (Equatable, Hashable, Comparable)*/
 struct Vector3D: Equatable {
     var x = 0.0, y = 0.0, z = 0.0
@@ -224,7 +216,6 @@ var levels = [SkillLevel.intermediate, SkillLevel.beginner,
 for level in levels.sorted() {
     print(level)
 }
-
 /*: ## Implicit Conformance to a Protocol */
 //Swift automatically infers conformation, you don't have to explicitly write
 //Copyable, Sendable, BitwiseCopyable
@@ -245,7 +236,6 @@ let things: [TextRepresentable] = [game, d12, simonTheHamster]
 for thing in things {
     print(thing.textualDescription)
 }
-
 /*: ## Protocol Inheritance */
 protocol PrettyTextRepresentable: TextRepresentable {
     var prettyTextualDescription: String { get }
@@ -258,12 +248,10 @@ extension DiceGame: PrettyTextRepresentable {
 }
 
 print(d12.prettyTextualDescription)
-
 /*: ## Class-only Protocol */
 protocol SomeClassOnlyProtocol: AnyObject {
     // class-only protocol definition goes here
 }
-
 /*: ## Protocol Composition */
 protocol Name {
     var name: String { get }
@@ -302,7 +290,6 @@ func beginConcert(in location: Location & Name) {
 
 let seattle = City(name: "Seattle", latitude: 47.6, longitude: -122.3)
 beginConcert(in: seattle)
-
 /*: ## Checking for Protocol Conformance */
 protocol HasArea {
     var area: Double { get }
@@ -337,7 +324,6 @@ for object in objects {
         print("Something that doesn't have an area")
     }
 }
-
 /*: ## Optional Protocol Requirements */
 @objc protocol CounterDataSource {
     @objc optional func increment(forCount count: Int) -> Int
@@ -366,7 +352,6 @@ for _ in 1...4 {
     counter.increment()
     print(counter.count)
 }
-
 /*: ## Protocol Extensions */
 extension RandomNumberGenerator {
     func randomBool() -> Bool {
@@ -402,5 +387,4 @@ let equalNumbers = [100, 100, 100, 100, 100]
 let differentNumbers = [100, 100, 200, 100, 200]
 print(equalNumbers.allEqual())
 print(differentNumbers.allEqual())
-
 //: [Next](@next)

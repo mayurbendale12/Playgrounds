@@ -25,14 +25,15 @@ manager.data.append("Some more data")
 // the DataImporter instance for the importer property hasn't yet been created
 print(manager.importer.filename)
 // the DataImporter instance for the importer property has now been created
-
 /*: ## Computed properties */
 struct Point {
     var x = 0.0, y = 0.0
 }
+
 struct Size {
     var width = 0.0, height = 0.0
 }
+
 struct Rect {
     var origin = Point()
     var size = Size()
@@ -48,8 +49,9 @@ struct Rect {
         }
     }
 }
+
 var square = Rect(origin: Point(x: 0.0, y: 0.0),
-    size: Size(width: 10.0, height: 10.0))
+                  size: Size(width: 10.0, height: 10.0))
 let initialSquareCenter = square.center
 // initialSquareCenter is at (5.0, 5.0)
 square.center = Point(x: 15.0, y: 15.0)
@@ -79,9 +81,9 @@ struct Cuboid {
         return width * height * depth
     }
 }
+
 let fourByFiveByTwo = Cuboid(width: 4.0, height: 5.0, depth: 2.0)
 print("the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)")
-
 /*: ## Property Observer */
 class StepCounter {
     var totalSteps: Int = 0 {
@@ -95,11 +97,11 @@ class StepCounter {
         }
     }
 }
+
 let stepCounter = StepCounter()
 stepCounter.totalSteps = 200
 stepCounter.totalSteps = 360
 stepCounter.totalSteps = 896
-
 /*: ## Property Wrappers */
 @propertyWrapper
 struct TwelveOrLess {
@@ -238,7 +240,6 @@ struct SizedRectangle {
     @SmallNumberWithProjectedValue var height: Int
     @SmallNumberWithProjectedValue var width: Int
 
-
     mutating func resize(to size: SizeSample) -> Bool {
         switch size {
         case .small:
@@ -251,7 +252,6 @@ struct SizedRectangle {
         return $height || $width
     }
 }
-
 /*: ## Type Property */
 @MainActor
 struct SomeStructure {
@@ -311,3 +311,5 @@ rightChannel.currentLevel = 11
 print(rightChannel.currentLevel)
 // Prints "10"
 print(AudioChannel.maxInputLevelForAllChannels)
+
+//: [Next](@next)

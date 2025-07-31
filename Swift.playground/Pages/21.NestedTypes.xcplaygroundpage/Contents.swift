@@ -1,6 +1,5 @@
 //: [Previous](@previous)
 struct BlackjackCard {
-
     // nested Suit enumeration
     enum Suit: Character {
         case spades = "♠", hearts = "♡", diamonds = "♢", clubs = "♣"

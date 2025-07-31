@@ -29,7 +29,7 @@ struct Rect {
 
 let defaultRect = Rect()
 let memberwiseRect = Rect(origin: Point(x: 2.0, y: 2.0),
-    size: Size(width: 5.0, height: 5.0))
+                          size: Size(width: 5.0, height: 5.0))
 
 extension Rect {
     init(center: Point, size: Size) {
@@ -40,7 +40,7 @@ extension Rect {
 }
 
 let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
-    size: Size(width: 3.0, height: 3.0))
+                      size: Size(width: 3.0, height: 3.0))
 
 //Methods
 extension Int {
@@ -113,7 +113,4 @@ func printIntegerKinds(_ numbers: [Int]) {
     print("")
 }
 printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
-
-
-
 //: [Next](@next)

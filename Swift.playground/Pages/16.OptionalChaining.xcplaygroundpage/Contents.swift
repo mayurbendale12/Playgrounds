@@ -3,10 +3,6 @@ class Person {
     var residence: Residence?
 }
 
-class SampleResidence {
-    var numberOfRooms = 1
-}
-
 let person = Person()
 if let roomCount = person.residence?.numberOfRooms {
     print("Person's residence has \(roomCount) room(s).")

@@ -5,6 +5,7 @@ struct Fahrenheit {
         temperature = 32.0
     }
 }
+
 var f = Fahrenheit()
 print("The default temperature is \(f.temperature)° Fahrenheit")
 
@@ -20,6 +21,7 @@ struct Celsius {
         temperatureInCelsius = celsius
     }
 }
+
 let boilingPointOfWater = Celsius(fromFahrenheit: 212.0)
 let freezingPointOfWater = Celsius(fromKelvin: 273.15)
 let bodyTemperature = Celsius(37.0)
@@ -37,6 +39,7 @@ struct Color {
         blue  = white
     }
 }
+
 let magenta = Color(red: 1.0, green: 0.0, blue: 1.0)
 let halfGray = Color(white: 0.5)
 
@@ -50,6 +53,7 @@ class SurveyQuestion {
         print(text)
     }
 }
+
 let cheeseQuestion = SurveyQuestion(text: "Do you like cheese?")
 cheeseQuestion.ask()
 cheeseQuestion.response = "Yes, I do like cheese."
@@ -59,12 +63,14 @@ class ListItem {
     var quantity = 1
     var purchased = false
 }
+
 var item = ListItem()
 
 //Structure has memberwise initialiser, even if you don't provide init()
 struct Size {
     var width = 0.0, height = 0.0
 }
+
 let twoByTwo = Size(width: 2.0, height: 2.0)
 let zeroByTwo = Size(height: 2.0)
 print(zeroByTwo.width, zeroByTwo.height)
@@ -74,6 +80,7 @@ print(zeroByZero.width, zeroByZero.height)
 struct Point {
     var x = 0.0, y = 0.0
 }
+
 struct Rect {
     var origin = Point()
     var size = Size()
@@ -88,6 +95,7 @@ struct Rect {
         self.init(origin: Point(x: originX, y: originY), size: size)
     }
 }
+
 let basicRect = Rect()
 let originRect = Rect(origin: Point(x: 2.0, y: 2.0),
                       size: Size(width: 5.0, height: 5.0))
@@ -110,6 +118,7 @@ class Bicycle: Vehicle {
         numberOfWheels = 2
     }
 }
+
 let bicycle = Bicycle()
 print("Bicycle: \(bicycle.description)")
 
@@ -123,6 +132,7 @@ class Hoverboard: Vehicle {
         return "\(super.description) in a beautiful \(color)"
     }
 }
+
 let hoverboard = Hoverboard(color: "silver")
 print("Hoverboard: \(hoverboard.description)")
 
@@ -136,6 +146,7 @@ class Food {
         self.init(name: "[Unnamed]")
     }
 }
+
 let namedMeat = Food(name: "Bacon")
 let mysteryMeat = Food()
 
@@ -149,6 +160,7 @@ class RecipeIngredient: Food {
         self.init(name: name, quantity: 1)
     }
 }
+
 let oneMysteryItem = RecipeIngredient()
 let oneBacon = RecipeIngredient(name: "Bacon")
 let sixEggs = RecipeIngredient(name: "Eggs", quantity: 6)
@@ -161,13 +173,16 @@ class ShoppingListItem: RecipeIngredient {
         return output
     }
 }
+
 var breakfastList = [
     ShoppingListItem(),
     ShoppingListItem(name: "Bacon"),
     ShoppingListItem(name: "Eggs", quantity: 6),
 ]
+
 breakfastList[0].name = "Orange juice"
 breakfastList[0].purchased = true
+
 for item in breakfastList {
     print(item.description)
 }
@@ -180,6 +195,7 @@ struct Animal {
         self.species = species
     }
 }
+
 let someCreature = Animal(species: "Giraffe")
 if let giraffe = someCreature {
     print("An animal was initialized with a species of \(giraffe.species)")
@@ -237,5 +253,4 @@ class SomeClass {
         return someValue
     }()
 }
-
 //: [Next](@next)

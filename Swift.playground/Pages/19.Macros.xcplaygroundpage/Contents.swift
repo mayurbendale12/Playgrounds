@@ -6,11 +6,10 @@ func myFunction() {
     #warning("Something's wrong")
 }
 
+myFunction()
 /*: ## Attached Macros */
 @Observable
 class Counter {
     var value: Int = 0
 }
-
-
 //: [Next](@next)

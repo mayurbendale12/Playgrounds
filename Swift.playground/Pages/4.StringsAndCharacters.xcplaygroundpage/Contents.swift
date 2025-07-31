@@ -2,22 +2,18 @@
 /*: ## Multiline String Literals */
 //Use \ for line breaks
 let quotation = """
-The White Rabbit put on his spectacles.  "Where shall I begin, \
+The White Rabbit put on his spectacles. "Where shall I begin, \
 please your Majesty?" he asked.
 
 "Begin at the beginning," the King said gravely, "and go on \
 till you come to the end; then stop."
 """
-
-
 /*: ## Extended String Delimiters */
 let val = #"test "" \n "#
 
 let threeMoreDoubleQuotationMarks = #"""
 Here are three more double quotes: """
 """#
-
-
 /*: ## Working with Characters */
 for character in "Dog!🐶" {
     print(character)
@@ -27,15 +23,10 @@ let catCharacters: [Character] = ["C", "a", "t", "!", "🐱"]
 let catString = String(catCharacters)
 print(catString)
 // Prints "Cat!🐱"
-
-
-
 /*: ## String Interpolation */
 let multiplier = 3
 let message = "\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
 // message is "3 times 2.5 is 7.5"
-
-
 /*: ## Basic Operations */
 let unusualMenagerie = "Koala 🐨, Snail 🐌, Penguin 🐧, Dromedary 🐪"
 print("unusualMenagerie has \(unusualMenagerie.count) characters")
@@ -139,5 +130,4 @@ for codeUnit in dogString.utf16 {
 for scalar in dogString.unicodeScalars {
     print("\(scalar) \(scalar.value) ", terminator: "")
 }
-
 //: [Next](@next)

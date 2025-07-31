@@ -39,7 +39,6 @@ extension Stack {
 if let topItem = stackOfStrings.topItem {
     print("The top item on the stack is \(topItem).")
 }
-
 /*: ## Type Constraint */
 func findIndex<T: Equatable>(of valueToFind: T, in array:[T]) -> Int? {
     for (index, value) in array.enumerated() {
@@ -52,7 +51,6 @@ func findIndex<T: Equatable>(of valueToFind: T, in array:[T]) -> Int? {
 
 let doubleIndex = findIndex(of: 9.3, in: [3.14159, 0.1, 0.25])
 let stringIndex = findIndex(of: "Andrea", in: ["Mike", "Malcolm", "Andrea"])
-
 /*: ## Associated Types */
 protocol Container {
     associatedtype Item
@@ -72,7 +70,6 @@ extension Stack: Container {
         return items[i]
     }
 }
-
 /*: ## Adding Constraints to an Associated Type */
 protocol ContainerWithConstraints {
     associatedtype Item: Equatable
@@ -80,7 +77,6 @@ protocol ContainerWithConstraints {
     var count: Int { get }
     subscript(i: Int) -> Item { get }
 }
-
 /*: ## Using a Protocol in Its Associated Type’s Constraints */
 protocol SuffixableContainer: Container {
     associatedtype Suffix: SuffixableContainer where Suffix.Item == Item
@@ -102,7 +98,6 @@ stackOfInts.append(10)
 stackOfInts.append(20)
 stackOfInts.append(30)
 let suffix = stackOfInts.suffix(2)
-
 /*: ## Generic Where Clauses */
 func allItemsMatch<C1: Container, C2: Container>(_ someContainer: C1, _ anotherContainer: C2) -> Bool where C1.Item == C2.Item, C1.Item: Equatable {
 
@@ -190,7 +185,6 @@ extension Container {
 let numbers = [1260, 1200, 98, 37]
 print(numbers.average())
 print(numbers.endsWith(37))
-
 /*: ## Associated Types with a Generic Where Clause */
 protocol ContainerWithAssociatedTypeWhereClause {
     associatedtype Item
@@ -204,7 +198,6 @@ protocol ContainerWithAssociatedTypeWhereClause {
 }
 
 protocol ComparableContainer: Container where Item: Comparable { }
-
 /*: ## Generic Subscripts */
 extension Container {
     subscript<Indices: Sequence>(indices: Indices) -> [Item]
@@ -216,9 +209,8 @@ extension Container {
         return result
     }
 }
-
 /*: ## Implicit Constraints */
-//Some protocol conformation like Copyable are im;licit, you don't have to write expicitly
+//Some protocol conformation like Copyable are implicit, you don't have to write expicitly
 func someFunction<MyType>(_ argument: MyType) {  }
 func someFunction1<MyType: Copyable>(_ argument: MyType) { }
 

@@ -1,6 +1,6 @@
 //: [Previous](@previous)
 class Bank {
-    static var coinsInBank = 10_000
+    nonisolated(unsafe) static var coinsInBank = 10_000
     static func distribute(coins numberOfCoinsRequested: Int) -> Int {
         let numberOfCoinsToVend = min(numberOfCoinsRequested, coinsInBank)
         coinsInBank -= numberOfCoinsToVend
@@ -34,5 +34,4 @@ print("The bank now only has \(Bank.coinsInBank) coins left")
 playerOne = nil
 print("PlayerOne has left the game")
 print("The bank now has \(Bank.coinsInBank) coins")
-
 //: [Next](@next)

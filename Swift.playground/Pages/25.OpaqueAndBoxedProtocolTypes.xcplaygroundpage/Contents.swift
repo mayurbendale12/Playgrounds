@@ -63,7 +63,6 @@ func join<T: Shape, U: Shape>(_ top: T, _ bottom: U) -> some Shape {
 let smallTriangle = Triangle(size: 3)
 let opaqueJoinedTriangles = join(smallTriangle, flip(smallTriangle))
 print(opaqueJoinedTriangles.draw())
-
 /*: ## Opaque Parmater Types*/
 //you can also write some in the type for a parameter to a function, subscript, or initializer
 func drawTwiceSome(_ shape: some Shape) -> String {

@@ -73,5 +73,4 @@ extension SomeStruct: SomeProtocol {
         print(privateVariable)
     }
 }
-
 //: [Next](@next)

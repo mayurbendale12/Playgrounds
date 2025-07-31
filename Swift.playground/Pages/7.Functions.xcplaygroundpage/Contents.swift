@@ -31,6 +31,7 @@ print(greet(person: "Bill", from: "Cupertino"))
 //Omitting Argument Label
 func someFunction(_ firstParameterName: Int, secondParameterName: Int) {
 }
+
 someFunction(1, secondParameterName: 2)
 
 //Default Paramter Value
@@ -38,6 +39,7 @@ func someFunction(parameterWithoutDefault: Int, parameterWithDefault: Int = 12) 
     // If you omit the second argument when calling this function, then
     // the value of parameterWithDefault is 12 inside the function body.
 }
+
 someFunction(parameterWithoutDefault: 3, parameterWithDefault: 6) // parameterWithDefault is 6
 someFunction(parameterWithoutDefault: 4) // parameterWithDefault is 12
 
@@ -49,6 +51,7 @@ func arithmeticMean(_ numbers: Double...) -> Double {
     }
     return total / Double(numbers.count)
 }
+
 arithmeticMean(1, 2, 3, 4, 5)
 
 //In-out Parameter
@@ -57,8 +60,10 @@ func swapTwoInts(_ a: inout Int, _ b: inout Int) {
     a = b
     b = temporaryA
 }
+
 var someInt = 3
 var anotherInt = 107
+
 swapTwoInts(&someInt, &anotherInt)
 print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
 
@@ -66,6 +71,7 @@ print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
 func addTwoInts(_ a: Int, _ b: Int) -> Int {
     return a + b
 }
+
 var mathFunction: (Int, Int) -> Int = addTwoInts
 print("Result: \(mathFunction(2, 3))")
 
@@ -73,24 +79,29 @@ print("Result: \(mathFunction(2, 3))")
 func printMathResult(_ mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
     print("Result: \(mathFunction(a, b))")
 }
+
 printMathResult(addTwoInts, 3, 5)
 
 //Function type as return type
 func stepForward(input: Int) -> Int {
     return input + 1
 }
+
 func stepBackward(input: Int) -> Int {
     return input - 1
 }
+
 func chooseStepFunction(backward: Bool) -> (Int) -> Int {
     if backward {
         return stepBackward
     }
     return stepForward
 }
+
 var currentValue = 3
 let moveNearerToZero = chooseStepFunction(backward: currentValue > 0)
 print("Counting to zero:")
+
 while currentValue != 0 {
     print("\(currentValue)... ")
     currentValue = moveNearerToZero(currentValue)
@@ -103,11 +114,13 @@ func chooseFunction(backward: Bool) -> (Int) -> Int {
     func stepBackward(input: Int) -> Int { return input - 1 }
     return backward ? stepBackward : stepForward
 }
+
 var value = -4
-let moveNearerToZero = chooseFunction(backward: value > 0)
+let moveNearerToZero1 = chooseFunction(backward: value > 0)
+
 while value != 0 {
     print("\(value)... ")
-    value = moveNearerToZero(value)
+    value = moveNearerToZero1(value)
 }
 print("zero!")
 //: [Next](@next)

@@ -1,5 +1,4 @@
 //: [Previous](@previous)
-
 /*: ## For-in Loop*/
 let names = ["Anna", "Alex", "Brian", "Jack"]
 for name in names {
@@ -52,6 +51,8 @@ print("Your score is \(score)")
 
 /*: ## If */
 var temperatureInFahrenheit = 90
+let temperatureInCelsius = 30
+
 if temperatureInFahrenheit <= 32 {
     print("It's very cold. Consider wearing a scarf.")
 } else if temperatureInFahrenheit >= 86 {
@@ -70,7 +71,6 @@ let weatherAdvice = if temperatureInCelsius <= 0 {
 
 print(weatherAdvice)
 
-let temperatureInCelsius = 30
 let freezeWarning: String? = if temperatureInCelsius <= 0 {
     "It's below freezing. Watch for ice!"
 } else {
@@ -318,5 +318,4 @@ func chooseBestColor() -> String {
 if #unavailable(iOS 10) {
     // Fallback code
 }
-
 //: [Next](@next)

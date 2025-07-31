@@ -1,6 +1,5 @@
 //: [Previous](@previous)
 /*: ## Defining class hierarchy for type casting */
-
 class MediaItem {
     var name: String
     init(name: String) {
@@ -32,7 +31,6 @@ let library = [
     Song(name: "Never Gonna Give You Up", artist: "Rick Astley")
 ]
 // the type of "library" is inferred to be [MediaItem]
-
 /*: ## Checking Type */
 var movieCount = 0
 var songCount = 0
@@ -46,7 +44,6 @@ for item in library {
 }
 
 print("Media library contains \(movieCount) movies and \(songCount) songs")
-
 /*: ## Downcasting */
 for item in library {
     if let movie = item as? Movie {
@@ -55,9 +52,7 @@ for item in library {
         print("Song: \(song.name), by \(song.artist)")
     }
 }
-
 /*: ## Type Casting for Any and AnyObject */
-
 var things: [Any] = []
 
 things.append(0)

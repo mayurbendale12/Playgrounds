@@ -15,9 +15,9 @@ let plusThree = -minusThree   // plusThree equals 3, or "minus minus three"
 let minusSix = -6
 let alsoMinusSix = +minusSix  // alsoMinusSix equals -6
 /*: ## Compound Assignment operator */
-var a = 1
-a += 2
-// a is now equal to 3
+var aa = 1
+aa += 2
+// aa is now equal to 3
 /*: ## Nil-Coalescing operator */
 let defaultColorName = "red"
 var userDefinedColorName: String?   // defaults to nil
