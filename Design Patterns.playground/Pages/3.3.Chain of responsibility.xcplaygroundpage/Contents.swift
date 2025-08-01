@@ -1,11 +1,9 @@
 //: ## Example 1
-
 protocol Withdrawing {
     func withdraw(amount: Int) -> Bool
 }
 
 final class MoneyPile: Withdrawing {
-
     let value: Int
     var quantity: Int
     var next: Withdrawing?
@@ -17,7 +15,6 @@ final class MoneyPile: Withdrawing {
     }
 
     func withdraw(amount: Int) -> Bool {
-
         var amount = amount
 
         func canTakeSomeBill(want: Int) -> Bool {
@@ -27,7 +24,6 @@ final class MoneyPile: Withdrawing {
         var quantity = self.quantity
 
         while canTakeSomeBill(want: amount) {
-
             if quantity == 0 {
                 break
             }
@@ -49,7 +45,6 @@ final class MoneyPile: Withdrawing {
 }
 
 final class ATM: Withdrawing {
-
     private var hundred: Withdrawing
     private var fifty: Withdrawing
     private var twenty: Withdrawing
@@ -63,7 +58,6 @@ final class ATM: Withdrawing {
            fifty: Withdrawing,
           twenty: Withdrawing,
              ten: Withdrawing) {
-
         self.hundred = hundred
         self.fifty = fifty
         self.twenty = twenty

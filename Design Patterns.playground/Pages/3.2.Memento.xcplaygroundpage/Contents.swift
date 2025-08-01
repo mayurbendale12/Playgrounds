@@ -1,7 +1,6 @@
 import Foundation
 
 //: ## Example 1
-
 typealias Memento = [String: String]
 
 protocol MementoConvertible {
@@ -10,7 +9,6 @@ protocol MementoConvertible {
 }
 
 struct GameState: MementoConvertible {
-
     private enum Keys {
         static let chapter = "com.valve.halflife.chapter"
         static let weapon = "com.valve.halflife.weapon"
@@ -35,12 +33,11 @@ struct GameState: MementoConvertible {
     }
 
     var memento: Memento {
-        return [ Keys.chapter: chapter, Keys.weapon: weapon ]
+        return [Keys.chapter: chapter, Keys.weapon: weapon]
     }
 }
 
 enum CheckPoint {
-
     private static let defaults = UserDefaults.standard
 
     static func save(_ state: MementoConvertible, saveName: String) {
@@ -71,8 +68,6 @@ if let memento = CheckPoint.restore(saveName: "gameState1") as? Memento {
     let finalState = GameState(memento: memento)
     dump(finalState)
 }
-
-
 //: ## Example 2
 // Memento: Represents the snapshot of the editor's state
 class EditorMemento {

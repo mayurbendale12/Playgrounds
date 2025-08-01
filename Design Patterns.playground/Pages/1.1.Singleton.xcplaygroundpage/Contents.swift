@@ -6,4 +6,3 @@ class Settings {
 }
 
 Settings.shared.username = "ABC"
-
