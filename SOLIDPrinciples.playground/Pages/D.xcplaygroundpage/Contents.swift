@@ -1,5 +1,6 @@
 import Foundation
 
+//Low level module
 class FileSystemManager {
     func save(string: String) {
         // Open a file
@@ -8,6 +9,7 @@ class FileSystemManager {
    }
 }
 
+//High level module
 class Handler {
     let fileManager = FileSystemManager()
 

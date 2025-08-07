@@ -1,4 +1,4 @@
-//Continueing with the Single responsibility priciple, in InvoicePersistence we are saving to file, new requirement comes and now wanted to save oin database. In this case we will add one more function to save in database in same class but this violets this principle. Instead we can prevent this like below:
+//Continueing with the Single responsibility priciple, in InvoicePersistence we are saving to file, new requirement comes and now wanted to save in database. In this case we will add one more function to save in database in same class but this violets this principle. Instead we can prevent this like below:
 
 protocol InvoicePersistence {
     func save(filename: String)

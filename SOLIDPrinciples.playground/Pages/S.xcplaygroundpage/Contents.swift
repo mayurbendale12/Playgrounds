@@ -21,7 +21,7 @@ class Invoice {
         self.total = self.calculateTotal()
     }
 
-    // This class is doing multiple things like calculateTotal, printInvoice and saveToFile which violates Single Responsibility Pronciple. To solve this, we ca ncreate new classes for printing and persistence
+    // This class is doing multiple things like calculateTotal, printInvoice and saveToFile which violates Single Responsibility Pronciple. To solve this, we can create new classes for printing and persistence
     func calculateTotal() -> Double {
         let price = book.price * Double(quantity)
         return price
