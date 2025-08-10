@@ -23,4 +23,3 @@ class BankAccount {
 let myAccount = BankAccount(initialBalance: 1000.0)
 myAccount.deposit(amount: 500.0)
 myAccount.withdraw(amount: 200.0)
-
